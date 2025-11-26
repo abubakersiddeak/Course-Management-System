@@ -282,13 +282,13 @@ export default function Page({ params }) {
             {/* Right Content - Course Image */}
             <div className="relative">
               <div className="relative h-[400px] rounded-xl overflow-hidden shadow-2xl">
-                <Image
+                <img
                   src={course.image}
                   alt={course.title}
-                  fill
+                  //   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
-                  priority
+                  //   priority
                 />
               </div>
               {course.bestseller && (

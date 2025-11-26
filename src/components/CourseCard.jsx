@@ -7,10 +7,10 @@ export default function CourseCard({ course }) {
       <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer group">
         {/* Image */}
         <div className="relative h-48 overflow-hidden">
-          <Image
+          <img
             src={course.image}
             alt={course.title}
-            fill
+            // fill
             className="object-cover group-hover:scale-110 transition-transform duration-300"
           />
           {course.bestseller && (

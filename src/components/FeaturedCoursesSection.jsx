@@ -223,13 +223,13 @@ export default function FeaturedCoursesSection() {
             >
               {/* Course Image */}
               <div className="relative h-48 overflow-hidden">
-                <Image
+                <img
                   src={course.image}
                   alt={course.title}
-                  fill
+                  // fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover group-hover:scale-110 transition-transform duration-300"
-                  priority={false}
+                  // priority={false}
                 />
                 {course.bestseller && (
                   <div className="absolute top-3 left-3">
