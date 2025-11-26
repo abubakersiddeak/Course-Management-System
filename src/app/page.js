@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function HomePage() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -388,7 +389,7 @@ export default function HomePage() {
         {/* Carousel Controls */}
         <button
           onClick={prevSlide}
-          className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 text-white flex items-center justify-center transition-colors"
+          className="absolute hidden lg:flex left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 text-white  items-center justify-center transition-colors"
         >
           <svg
             className="h-6 w-6"
@@ -406,7 +407,7 @@ export default function HomePage() {
         </button>
         <button
           onClick={nextSlide}
-          className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 text-white flex items-center justify-center transition-colors"
+          className="absolute hidden lg:flex right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 text-white  items-center justify-center transition-colors"
         >
           <svg
             className="h-6 w-6"
@@ -597,9 +598,11 @@ export default function HomePage() {
               >
                 {/* Course Image */}
                 <div className="relative h-48 overflow-hidden">
-                  <img
+                  <Image
                     src={course.image}
                     alt={course.title}
+                    width={100}
+                    height={100}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />
                   {course.bestseller && (
@@ -733,7 +736,7 @@ export default function HomePage() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-gradient-to-r from-sky-600 to-sky-700 text-white">
+      <section className="py-16 bg-linear-to-r from-sky-600 to-sky-700 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
@@ -780,9 +783,11 @@ export default function HomePage() {
               >
                 <div className="bg-white rounded-2xl shadow-xl p-8 sm:p-12">
                   <div className="flex flex-col sm:flex-row items-center gap-6 mb-6">
-                    <img
+                    <Image
                       src={testimonial.image}
                       alt={testimonial.name}
+                      height={20}
+                      width={20}
                       className="w-20 h-20 rounded-full border-4 border-sky-100"
                     />
                     <div className="text-center sm:text-left">
@@ -834,7 +839,7 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-br from-slate-900 to-slate-800 text-white">
+      <section className="py-16 bg-linear-to-br from-slate-900 to-slate-800 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 bg-sky-500/20 backdrop-blur-sm border border-sky-400/30 px-4 py-2 rounded-full mb-6">
             <svg
