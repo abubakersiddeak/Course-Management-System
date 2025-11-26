@@ -13,7 +13,7 @@ import {
 import { AuthContext } from "@/context/context";
 
 import { useEffect, useState } from "react";
-import { auth } from "@/app/lib/firebase.config";
+import { auth } from "@/lib/firebase.config";
 
 const GoogleProvider = new GoogleAuthProvider();
 

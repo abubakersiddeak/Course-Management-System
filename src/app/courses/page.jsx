@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function CoursesPage() {
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -11,259 +12,30 @@ export default function CoursesPage() {
   const [viewMode, setViewMode] = useState("grid");
   const [sortBy, setSortBy] = useState("popular");
   const [showFilters, setShowFilters] = useState(false);
+  const [allCourses, setAllCourses] = useState([]);
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        setLoading(true);
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_BACKEND_DOMAIN}/api/allcourse`
+        );
+        const course = await res.json();
+        setAllCourses(course.data);
+      } catch (error) {
+        setLoading(false);
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchData();
+  }, []);
 
-  // All Courses Data
-  const allCourses = [
-    {
-      id: 1,
-      title: "Complete Web Development Bootcamp",
-      instructor: "Dr. Angela Yu",
-      category: "Web Development",
-      image:
-        "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=500",
-      rating: 4.8,
-      reviews: 12453,
-      students: 45230,
-      price: 99.99,
-      originalPrice: 199.99,
-      duration: "52 hours",
-      lessons: 65,
-      level: "Beginner",
-      bestseller: true,
-      updated: "2024-01",
-      description:
-        "Master web development with HTML, CSS, JavaScript, React, Node.js and more",
-      tags: ["HTML", "CSS", "JavaScript", "React"],
-    },
-    {
-      id: 2,
-      title: "Advanced React & Next.js Development",
-      instructor: "Maximilian Schwarzmüller",
-      category: "Web Development",
-      image:
-        "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=500",
-      rating: 4.9,
-      reviews: 8234,
-      students: 32100,
-      price: 129.99,
-      originalPrice: 249.99,
-      duration: "40 hours",
-      lessons: 52,
-      level: "Advanced",
-      bestseller: false,
-      updated: "2024-02",
-      description: "Build modern web applications with React 18 and Next.js 14",
-      tags: ["React", "Next.js", "TypeScript"],
-    },
-    {
-      id: 3,
-      title: "Python for Data Science & Machine Learning",
-      instructor: "Jose Portilla",
-      category: "Data Science",
-      image:
-        "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=500",
-      rating: 4.7,
-      reviews: 15678,
-      students: 62450,
-      price: 149.99,
-      originalPrice: 299.99,
-      duration: "60 hours",
-      lessons: 78,
-      level: "Intermediate",
-      bestseller: true,
-      updated: "2024-01",
-      description:
-        "Learn Python, NumPy, Pandas, Matplotlib, Scikit-Learn and Machine Learning",
-      tags: ["Python", "ML", "Data Science"],
-    },
-    {
-      id: 4,
-      title: "UI/UX Design Masterclass",
-      instructor: "Daniel Walter Scott",
-      category: "Design",
-      image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=500",
-      rating: 4.9,
-      reviews: 9876,
-      students: 28900,
-      price: 119.99,
-      originalPrice: 229.99,
-      duration: "45 hours",
-      lessons: 58,
-      level: "All Levels",
-      bestseller: false,
-      updated: "2024-02",
-      description:
-        "Master Figma, Adobe XD, and design principles to create stunning interfaces",
-      tags: ["Figma", "UI/UX", "Design"],
-    },
-    {
-      id: 5,
-      title: "Digital Marketing Complete Course",
-      instructor: "Phil Ebiner",
-      category: "Marketing",
-      image:
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500",
-      rating: 4.6,
-      reviews: 11234,
-      students: 41200,
-      price: 89.99,
-      originalPrice: 179.99,
-      duration: "35 hours",
-      lessons: 45,
-      level: "Beginner",
-      bestseller: false,
-      updated: "2023-12",
-      description:
-        "Learn SEO, Social Media Marketing, Email Marketing, and Google Ads",
-      tags: ["SEO", "Social Media", "Ads"],
-    },
-    {
-      id: 6,
-      title: "Mobile App Development with React Native",
-      instructor: "Stephen Grider",
-      category: "Mobile Development",
-      image:
-        "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=500",
-      rating: 4.8,
-      reviews: 7654,
-      students: 25300,
-      price: 139.99,
-      originalPrice: 269.99,
-      duration: "48 hours",
-      lessons: 62,
-      level: "Intermediate",
-      bestseller: true,
-      updated: "2024-02",
-      description:
-        "Build iOS and Android apps with React Native and JavaScript",
-      tags: ["React Native", "Mobile", "iOS", "Android"],
-    },
-    {
-      id: 7,
-      title: "Full Stack JavaScript Developer",
-      instructor: "Brad Traversy",
-      category: "Web Development",
-      image:
-        "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?w=500",
-      rating: 4.7,
-      reviews: 13450,
-      students: 38700,
-      price: 109.99,
-      originalPrice: 219.99,
-      duration: "55 hours",
-      lessons: 70,
-      level: "Intermediate",
-      bestseller: true,
-      updated: "2024-01",
-      description:
-        "Master the MERN stack: MongoDB, Express, React, and Node.js",
-      tags: ["MongoDB", "Express", "React", "Node.js"],
-    },
-    {
-      id: 8,
-      title: "AWS Certified Solutions Architect",
-      instructor: "Ryan Kroonenburg",
-      category: "Cloud Computing",
-      image:
-        "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500",
-      rating: 4.8,
-      reviews: 9230,
-      students: 31200,
-      price: 159.99,
-      originalPrice: 319.99,
-      duration: "42 hours",
-      lessons: 56,
-      level: "Advanced",
-      bestseller: false,
-      updated: "2024-02",
-      description:
-        "Prepare for AWS certification with hands-on projects and practice exams",
-      tags: ["AWS", "Cloud", "DevOps"],
-    },
-    {
-      id: 9,
-      title: "Graphic Design Bootcamp",
-      instructor: "Lindsay Marsh",
-      category: "Design",
-      image:
-        "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=500",
-      rating: 4.6,
-      reviews: 6780,
-      students: 19500,
-      price: 94.99,
-      originalPrice: 189.99,
-      duration: "38 hours",
-      lessons: 48,
-      level: "Beginner",
-      bestseller: false,
-      updated: "2023-11",
-      description: "Master Adobe Photoshop, Illustrator, and InDesign",
-      tags: ["Photoshop", "Illustrator", "Design"],
-    },
-    {
-      id: 10,
-      title: "Blockchain & Cryptocurrency Course",
-      instructor: "Ivan on Tech",
-      category: "Blockchain",
-      image:
-        "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=500",
-      rating: 4.7,
-      reviews: 5432,
-      students: 15800,
-      price: 169.99,
-      originalPrice: 339.99,
-      duration: "50 hours",
-      lessons: 64,
-      level: "Advanced",
-      bestseller: false,
-      updated: "2024-01",
-      description:
-        "Learn blockchain technology, smart contracts, and cryptocurrency trading",
-      tags: ["Blockchain", "Crypto", "Web3"],
-    },
-    {
-      id: 11,
-      title: "Complete Excel Mastery Course",
-      instructor: "Kyle Pew",
-      category: "Business",
-      image:
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500",
-      rating: 4.8,
-      reviews: 14567,
-      students: 52300,
-      price: 79.99,
-      originalPrice: 159.99,
-      duration: "30 hours",
-      lessons: 42,
-      level: "All Levels",
-      bestseller: true,
-      updated: "2023-12",
-      description:
-        "Master Excel from basics to advanced features, macros, and VBA",
-      tags: ["Excel", "Business", "Data Analysis"],
-    },
-    {
-      id: 12,
-      title: "Photography Masterclass",
-      instructor: "Phil Ebiner",
-      category: "Photography",
-      image:
-        "https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=500",
-      rating: 4.9,
-      reviews: 8901,
-      students: 27600,
-      price: 99.99,
-      originalPrice: 199.99,
-      duration: "44 hours",
-      lessons: 56,
-      level: "Beginner",
-      bestseller: false,
-      updated: "2024-02",
-      description:
-        "Learn photography from basics to advanced techniques and editing",
-      tags: ["Photography", "Lightroom", "Camera"],
-    },
-  ];
+  if (loading) {
+    return <div>loading..</div>;
+  }
 
   // Categories
   const categories = [
@@ -758,14 +530,17 @@ export default function CoursesPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
                 {sortedCourses.map((course) => (
                   <div
-                    key={course.id}
+                    key={course._id}
                     className="bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-xl transition-all overflow-hidden group"
                   >
                     {/* Course Image */}
                     <div className="relative h-40 sm:h-48 overflow-hidden">
-                      <img
+                      <Image
                         src={course.image}
                         alt={course.title}
+                        height={100}
+                        width={100}
+                        quality={100}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                       />
                       {course.bestseller && (
@@ -912,10 +687,13 @@ export default function CoursesPage() {
                   >
                     <div className="flex flex-col sm:flex-row">
                       {/* Course Image - Mobile Optimized */}
-                      <div className="relative w-full sm:w-48 md:w-64 h-40 sm:h-auto flex-shrink-0 overflow-hidden group">
-                        <img
+                      <div className="relative w-full sm:w-48 md:w-64 h-40 sm:h-auto shrink-0 overflow-hidden group">
+                        <Image
                           src={course.image}
                           alt={course.title}
+                          height={100}
+                          width={100}
+                          quality={100}
                           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                         />
                         {course.bestseller && (

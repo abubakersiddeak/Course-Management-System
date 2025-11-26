@@ -181,6 +181,7 @@ export default function DashboardLayout({ children }) {
                       className="w-full h-full object-cover"
                       width={36}
                       height={36}
+                      quality={100}
                     />
                   ) : (
                     <span className="text-sm font-semibold text-sky-700">

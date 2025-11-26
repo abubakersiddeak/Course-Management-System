@@ -467,6 +467,7 @@ export default function Page() {
                     className="w-full h-48 sm:h-64 object-cover"
                     height={40}
                     width={40}
+                    quality={100}
                   />
                   <button
                     type="button"
