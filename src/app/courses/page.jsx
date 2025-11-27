@@ -182,7 +182,7 @@ export default function CoursesPage() {
           <p className="text-slate-600 mb-6">{error}</p>
           <button
             onClick={() => window.location.reload()}
-            className="bg-sky-600 hover:bg-sky-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+            className="cursor-pointer bg-sky-600 hover:bg-sky-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
           >
             Try Again
           </button>
@@ -192,9 +192,9 @@ export default function CoursesPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <div className="min-h-screen bg-linear-to-br from-blue-50 via-white to-purple-50">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-sky-600 to-purple-600 text-white py-8 sm:py-12 lg:py-16">
+      <section className="bg-linear-to-r from-sky-600 to-sky-700 text-white py-8 sm:py-12 lg:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4">
@@ -212,10 +212,10 @@ export default function CoursesPage() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search courses by title, instructor, or description..."
-                className="w-full px-4 sm:px-6 py-3 sm:py-4 pl-12 sm:pl-14 rounded-xl text-slate-800 focus:outline-none focus:ring-4 focus:ring-white/30 text-sm sm:text-base shadow-lg"
+                className="bg-sky-700 text-gray-200 w-full px-4 sm:px-6 py-3 sm:py-4 pl-12 sm:pl-14 rounded-xl  focus:outline-none focus:ring-4 focus:ring-white/30 text-sm sm:text-base shadow-lg"
               />
               <svg
-                className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 h-5 w-5 sm:h-6 sm:w-6 text-slate-400"
+                className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 h-5 w-5 sm:h-6 sm:w-6 text-slate-200"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -230,7 +230,7 @@ export default function CoursesPage() {
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery("")}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+                  className="cursor-pointer absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
                 >
                   <svg
                     className="h-5 w-5"
@@ -257,7 +257,7 @@ export default function CoursesPage() {
         <div className="lg:hidden mb-4">
           <button
             onClick={() => setShowFilters(!showFilters)}
-            className="w-full bg-white border-2 border-gray-200 hover:border-sky-500 text-slate-700 px-4 py-3 rounded-xl flex items-center justify-center gap-2 font-medium shadow-md transition-all"
+            className="cursor-pointer w-full bg-white border-2 border-gray-200 hover:border-sky-500 text-slate-700 px-4 py-3 rounded-xl flex items-center justify-center gap-2 font-medium shadow-md transition-all"
           >
             <svg
               className="h-5 w-5"
@@ -311,7 +311,7 @@ export default function CoursesPage() {
                 </h3>
                 <button
                   onClick={() => setShowFilters(false)}
-                  className="w-8 h-8 rounded-full hover:bg-gray-100 flex items-center justify-center"
+                  className="cursor-pointer w-8 h-8 rounded-full hover:bg-gray-100 flex items-center justify-center"
                 >
                   <svg
                     className="h-5 w-5"
@@ -330,7 +330,7 @@ export default function CoursesPage() {
               </div>
 
               <h3 className="hidden lg:flex font-bold text-slate-800 text-lg mb-6 items-center gap-2">
-                <div className="w-8 h-8 bg-gradient-to-br from-sky-500 to-purple-600 rounded-lg flex items-center justify-center">
+                <div className="w-8 h-8 bg-linear-to-br bg-sky-500 rounded-lg flex items-center justify-center">
                   <svg
                     className="h-5 w-5 text-white"
                     fill="none"
@@ -373,7 +373,7 @@ export default function CoursesPage() {
                       key={cat.value}
                       className={`flex items-center gap-3 cursor-pointer p-3 rounded-lg transition-all ${
                         selectedCategory === cat.value
-                          ? "bg-gradient-to-r from-sky-50 to-purple-50 border-2 border-sky-300"
+                          ? "bg-linear-to-r from-sky-50 to-purple-50 border-2 border-sky-300"
                           : "hover:bg-gray-50 border-2 border-transparent"
                       }`}
                     >
@@ -406,7 +406,7 @@ export default function CoursesPage() {
                         key={level}
                         className={`flex items-center gap-3 cursor-pointer p-3 rounded-lg transition-all ${
                           selectedLevel === level
-                            ? "bg-gradient-to-r from-sky-50 to-purple-50 border-2 border-sky-300"
+                            ? "bg-linear-to-r from-sky-50 to-purple-50 border-2 border-sky-300"
                             : "hover:bg-gray-50 border-2 border-transparent"
                         }`}
                       >
@@ -443,7 +443,7 @@ export default function CoursesPage() {
                       key={price.value}
                       className={`flex items-center gap-3 cursor-pointer p-3 rounded-lg transition-all ${
                         selectedPrice === price.value
-                          ? "bg-gradient-to-r from-sky-50 to-purple-50 border-2 border-sky-300"
+                          ? "bg-linear-to-r from-sky-50 to-purple-50 border-2 border-sky-300"
                           : "hover:bg-gray-50 border-2 border-transparent"
                       }`}
                     >
@@ -473,7 +473,7 @@ export default function CoursesPage() {
                     setSearchQuery("");
                     setSortBy("popular");
                   }}
-                  className="w-full px-4 py-3 border-2 border-gray-300 text-gray-700 rounded-xl font-semibold hover:bg-gray-50 transition-all"
+                  className="cursor-pointer w-full px-4 py-3 border-2 border-gray-300 text-gray-700 rounded-xl font-semibold hover:bg-gray-50 transition-all"
                 >
                   Reset All Filters
                 </button>
@@ -481,7 +481,7 @@ export default function CoursesPage() {
                 {/* Apply Button - Mobile Only */}
                 <button
                   onClick={() => setShowFilters(false)}
-                  className="w-full px-4 py-3 bg-gradient-to-r from-sky-500 to-purple-600 hover:from-sky-600 hover:to-purple-700 text-white rounded-xl font-semibold shadow-lg lg:hidden"
+                  className="cursor-pointer w-full px-4 py-3  bg-sky-500 hover:bg-sky-600  text-white rounded-xl font-semibold shadow-lg lg:hidden"
                 >
                   Apply Filters
                 </button>
@@ -527,9 +527,9 @@ export default function CoursesPage() {
                   <div className="flex border-2 border-gray-200 rounded-xl overflow-hidden">
                     <button
                       onClick={() => setViewMode("grid")}
-                      className={`px-3 py-2 transition-all ${
+                      className={`px-3 py-2 transition-all cursor-pointer ${
                         viewMode === "grid"
-                          ? "bg-gradient-to-r from-sky-500 to-purple-600 text-white"
+                          ? "bg-linear-to-r bg-sky-500  text-white"
                           : "bg-white text-slate-600 hover:bg-gray-50"
                       }`}
                     >
@@ -549,9 +549,9 @@ export default function CoursesPage() {
                     </button>
                     <button
                       onClick={() => setViewMode("list")}
-                      className={`px-3 py-2 transition-all ${
+                      className={`px-3 py-2 transition-all cursor-pointer${
                         viewMode === "list"
-                          ? "bg-gradient-to-r from-sky-500 to-purple-600 text-white"
+                          ? "bg-linear-to-r bg-sky-500  text-white"
                           : "bg-white text-slate-600 hover:bg-gray-50"
                       }`}
                     >
@@ -576,7 +576,7 @@ export default function CoursesPage() {
 
             {/* Empty State */}
             {sortedCourses.length === 0 && (
-              <div className="bg-white rounded-2xl border-2 border-gray-100 p-12 text-center shadow-lg">
+              <div className="cursor-pointer bg-white rounded-2xl border-2 border-gray-100 p-12 text-center shadow-lg">
                 <svg
                   className="h-20 w-20 text-slate-400 mx-auto mb-4"
                   fill="none"
@@ -604,7 +604,7 @@ export default function CoursesPage() {
                     setSearchQuery("");
                     setSortBy("popular");
                   }}
-                  className="bg-gradient-to-r from-sky-500 to-purple-600 hover:from-sky-600 hover:to-purple-700 text-white px-8 py-3 rounded-xl font-semibold shadow-lg transform hover:scale-105 transition-all"
+                  className="cursor-pointer  bg-sky-500  hover:bg-sky-600 text-white px-8 py-3 rounded-xl font-semibold shadow-lg transform hover:scale-105 transition-all"
                 >
                   Reset All Filters
                 </button>
@@ -630,14 +630,14 @@ export default function CoursesPage() {
                       />
                       {course.bestseller && (
                         <div className="absolute top-3 left-3">
-                          <span className="bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+                          <span className="bg-linear-to-r from-amber-500 to-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
                             ⭐ BESTSELLER
                           </span>
                         </div>
                       )}
                       {course.originalPrice > course.price && (
                         <div className="absolute top-3 right-3">
-                          <span className="bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+                          <span className="bg-linear-to-r from-red-500 to-pink-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
                             {Math.round(
                               ((course.originalPrice - course.price) /
                                 course.originalPrice) *
@@ -652,7 +652,7 @@ export default function CoursesPage() {
                     {/* Course Content */}
                     <div className="p-5">
                       <div className="flex items-center gap-2 mb-3">
-                        <span className="text-xs bg-gradient-to-r from-sky-50 to-purple-50 text-sky-700 border border-sky-200 px-3 py-1 rounded-full font-semibold">
+                        <span className="text-xs bg-linear-to-r from-sky-50 to-purple-50 text-sky-700 border border-sky-200 px-3 py-1 rounded-full font-semibold">
                           {course.category}
                         </span>
                         <span className="text-xs border-2 border-gray-200 px-3 py-1 rounded-full capitalize font-medium">
@@ -715,7 +715,7 @@ export default function CoursesPage() {
 
                       <div className="flex items-center justify-between pt-4 border-t-2 border-gray-100">
                         <div>
-                          <div className="text-2xl font-bold bg-gradient-to-r from-sky-600 to-purple-600 bg-clip-text text-transparent">
+                          <div className="text-2xl font-bold bg-linear-to-r from-sky-600 to-purple-600 bg-clip-text text-transparent">
                             ${course.price}
                           </div>
                           {course.originalPrice > course.price && (
@@ -724,7 +724,7 @@ export default function CoursesPage() {
                             </div>
                           )}
                         </div>
-                        <button className="bg-gradient-to-r from-sky-500 to-purple-600 hover:from-sky-600 hover:to-purple-700 text-white px-5 py-2 rounded-xl font-semibold shadow-lg transform hover:scale-105 transition-all">
+                        <button className="cursor-pointer bg-linear-to-r bg-sky-500 hover:bg-sky-600 text-white px-5 py-2 rounded-xl font-semibold shadow-lg transform hover:scale-105 transition-all">
                           View
                         </button>
                       </div>
@@ -754,7 +754,7 @@ export default function CoursesPage() {
                         />
                         {course.bestseller && (
                           <div className="absolute top-3 left-3">
-                            <span className="bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+                            <span className="bg-linear-to-r from-amber-500 to-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
                               ⭐ BESTSELLER
                             </span>
                           </div>
@@ -765,7 +765,7 @@ export default function CoursesPage() {
                       <div className="flex-1 p-6">
                         <div className="flex items-start justify-between gap-4 mb-3">
                           <div className="flex items-center gap-2">
-                            <span className="text-xs bg-gradient-to-r from-sky-50 to-purple-50 text-sky-700 border border-sky-200 px-3 py-1 rounded-full font-semibold">
+                            <span className="text-xs bg-linear-to-r from-sky-50 to-purple-50 text-sky-700 border border-sky-200 px-3 py-1 rounded-full font-semibold">
                               {course.category}
                             </span>
                             <span className="text-xs border-2 border-gray-200 px-3 py-1 rounded-full capitalize">
@@ -773,7 +773,7 @@ export default function CoursesPage() {
                             </span>
                           </div>
                           {course.originalPrice > course.price && (
-                            <span className="bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+                            <span className="bg-linear-to-r from-red-500 to-pink-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
                               {Math.round(
                                 ((course.originalPrice - course.price) /
                                   course.originalPrice) *
@@ -864,7 +864,7 @@ export default function CoursesPage() {
 
                         <div className="flex items-center justify-between pt-4 border-t-2 border-gray-100">
                           <div>
-                            <div className="text-3xl font-bold bg-gradient-to-r from-sky-600 to-purple-600 bg-clip-text text-transparent">
+                            <div className="text-3xl font-bold bg-linear-to-r from-sky-600 to-purple-600 bg-clip-text text-transparent">
                               ${course.price}
                             </div>
                             {course.originalPrice > course.price && (
@@ -873,7 +873,7 @@ export default function CoursesPage() {
                               </div>
                             )}
                           </div>
-                          <button className="bg-gradient-to-r from-sky-500 to-purple-600 hover:from-sky-600 hover:to-purple-700 text-white px-8 py-3 rounded-xl font-semibold shadow-lg transform hover:scale-105 transition-all">
+                          <button className="cursor-pointer bg-linear-to-r bg-sky-500 hover:bg-sky-600  text-white px-8 py-3 rounded-xl font-semibold shadow-lg transform hover:scale-105 transition-all">
                             View Course
                           </button>
                         </div>
@@ -891,7 +891,7 @@ export default function CoursesPage() {
                   <button
                     onClick={() => handlePageChange(currentPage - 1)}
                     disabled={currentPage === 1}
-                    className="px-4 py-2 border-2 border-gray-200 rounded-xl disabled:opacity-50 disabled:cursor-not-allowed hover:border-sky-500 transition-all"
+                    className="cursor-pointer px-4 py-2 border-2 border-gray-200 rounded-xl disabled:opacity-50 disabled:cursor-not-allowed hover:border-sky-500 transition-all"
                   >
                     <svg
                       className="h-5 w-5"
@@ -920,9 +920,9 @@ export default function CoursesPage() {
                         <button
                           key={pageNumber}
                           onClick={() => handlePageChange(pageNumber)}
-                          className={`px-4 py-2 rounded-xl font-semibold transition-all ${
+                          className={`px-4 py-2 rounded-xl font-semibold transition-all cursor-pointer ${
                             currentPage === pageNumber
-                              ? "bg-gradient-to-r from-sky-500 to-purple-600 text-white shadow-lg"
+                              ? "bg-linear-to-r bg-sky-500  text-white shadow-lg"
                               : "border-2 border-gray-200 hover:border-sky-500"
                           }`}
                         >
@@ -941,7 +941,7 @@ export default function CoursesPage() {
                   <button
                     onClick={() => handlePageChange(currentPage + 1)}
                     disabled={currentPage === totalPages}
-                    className="px-4 py-2 border-2 border-gray-200 rounded-xl disabled:opacity-50 disabled:cursor-not-allowed hover:border-sky-500 transition-all"
+                    className="cursor-pointer px-4 py-2 border-2 border-gray-200 rounded-xl disabled:opacity-50 disabled:cursor-not-allowed hover:border-sky-500 transition-all "
                   >
                     <svg
                       className="h-5 w-5"
