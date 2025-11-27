@@ -71,12 +71,12 @@ export default function HeroCarousel() {
           >
             {/* Background Image */}
             <div className="absolute inset-0">
-              <Image
+              <img
                 src={slide.image}
                 alt={slide.title}
-                height={100}
-                width={100}
-                quality={100}
+                // height={100}
+                // width={100}
+                // quality={100}
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-linear-to-r from-slate-900 via-slate-900/90 to-slate-900/50"></div>

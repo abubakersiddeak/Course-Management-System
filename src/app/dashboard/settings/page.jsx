@@ -489,7 +489,7 @@ export default function Settings() {
             </div>
 
             {/* Quick Actions - Mobile Hidden */}
-            <div className="hidden lg:block mt-6 bg-gradient-to-br from-sky-50 to-sky-100 rounded-xl p-4 border border-sky-200">
+            <div className="hidden lg:block mt-6 bg-linear-to-br from-sky-50 to-sky-100 rounded-xl p-4 border border-sky-200">
               <h3 className="font-semibold text-slate-800 mb-3 text-sm">
                 Quick Actions
               </h3>

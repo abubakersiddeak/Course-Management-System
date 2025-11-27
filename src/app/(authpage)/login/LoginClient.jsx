@@ -102,7 +102,7 @@ export function LoginClient() {
 
         {/* Card */}
         <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white/90 p-6 shadow-xl backdrop-blur">
-          {/* Subtle gradient glow */}
+          {/* Subtle linear glow */}
           <div className="pointer-events-none absolute inset-x-8 -top-12 h-20 bg-linear-to-b from-sky-200/70 to-transparent opacity-80 blur-2xl" />
 
           <form onSubmit={handleFormSubmit} className="relative space-y-4">

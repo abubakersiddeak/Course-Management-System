@@ -617,7 +617,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 sm:py-20 bg-gradient-to-r from-sky-600 to-sky-700 text-white">
+      <section className="py-16 sm:py-20 bg-linear-to-r from-sky-600 to-sky-700 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
             Ready to Start Learning?
