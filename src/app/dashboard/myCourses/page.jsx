@@ -724,7 +724,7 @@ export default function CoursesPage() {
   // Loading state
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-purple-50">
+      <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-blue-50 to-purple-50">
         <div className="text-center">
           <Loader2 className="h-16 w-16 text-sky-500 mx-auto mb-4 animate-spin" />
           <p className="text-slate-600 text-lg font-medium">
@@ -736,12 +736,12 @@ export default function CoursesPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 p-4 sm:p-6 lg:p-8">
+    <div className="min-h-screen bg-linear-to-br from-blue-50 via-white to-purple-50 p-4 sm:p-6 lg:p-8">
       <div className="max-w-7xl mx-auto space-y-6">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
-            <h1 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-sky-600 to-purple-600 bg-clip-text text-transparent">
+            <h1 className="text-3xl sm:text-4xl font-bold bg-linear-to-r from-sky-600 to-purple-600 bg-clip-text text-transparent">
               My Courses
             </h1>
             <p className="text-slate-600 mt-1 text-sm sm:text-base">
@@ -1351,7 +1351,7 @@ export default function CoursesPage() {
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-3xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto">
             {/* Modal Header */}
-            <div className="sticky top-0 bg-gradient-to-r from-sky-500 to-purple-500 text-white p-6 rounded-t-3xl flex items-center justify-between z-10">
+            <div className="sticky top-0 bg-linear-to-r from-sky-500 to-purple-500 text-white p-6 rounded-t-3xl flex items-center justify-between z-10">
               <div>
                 <h2 className="text-2xl font-bold">Edit Course</h2>
                 <p className="text-sky-100 text-sm mt-1">
@@ -1611,7 +1611,7 @@ export default function CoursesPage() {
               <button
                 onClick={handleSaveChanges}
                 disabled={isSaving}
-                className="flex-1 px-6 py-3 bg-gradient-to-r from-sky-500 to-purple-500 hover:from-sky-600 hover:to-purple-600 text-white rounded-xl font-semibold shadow-lg transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex-1 px-6 py-3 bg-linear-to-r from-sky-500 to-purple-500 hover:from-sky-600 hover:to-purple-600 text-white rounded-xl font-semibold shadow-lg transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSaving ? (
                   <>
